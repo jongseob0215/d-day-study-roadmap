@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#10251e">
+  <meta name="description" content="정보처리기사 실기 18일 완주 플래너">
+  <title>D-Day 학습 로드맵</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#today"><span>⌁</span> D–DAY LAB</a>
+    <nav><button data-view="today" class="active">오늘</button><button data-view="roadmap">로드맵</button><button data-view="review">오답</button><button data-view="cards">암기카드</button></nav>
+    <button id="reset" class="icon-btn" title="데이터 초기화">↻</button>
+  </header>
+  <main>
+    <section id="today" class="view active">
+      <div class="hero">
+        <div><p class="eyebrow">2026 정보처리기사 실기 · 10월 25일</p><h1>끝까지 가는<br><em>18일.</em></h1><p class="lead">오늘 할 일만 선명하게. 체크하고, 기록하고, 다시 푸세요.</p></div>
+        <div class="count-card"><span id="countLabel">시험까지</span><strong id="dayCount">D–18</strong><small id="todayDate">10월 7일 수요일</small></div>
+      </div>
+      <div class="stats">
+        <article><span>전체 진도</span><strong id="progressText">0%</strong><div class="bar"><i id="progressBar"></i></div></article>
+        <article><span>최근 점수</span><strong id="latestScore">—</strong><small>목표 70점+</small></article>
+        <article><span>복습 대기</span><strong id="dueCount">0</strong><small>△와 X 문항</small></article>
+      </div>
+      <section class="panel today-panel"><div class="panel-head"><div><p class="eyebrow" id="todayD">DAY 01 · D–18</p><h2 id="todayTitle">진단 시험</h2></div><span class="tag" id="todayPhase">1단계</span></div><p id="todayTask"></p><label class="complete"><input id="todayCheck" type="checkbox"><span>오늘 학습 완료</span></label></section>
+      <div class="two-col">
+        <section class="panel"><div class="panel-head"><h2>시험 점수 기록</h2><span class="muted">20문항 · 100점</span></div><form id="scoreForm"><select id="examSelect"></select><input id="scoreInput" type="number" min="0" max="100" step="5" placeholder="점수"><button class="primary">기록</button></form><div id="scoreList" class="score-list"></div></section>
+        <section class="panel focus"><p class="eyebrow">합격 전략</p><h2>코드 8 + 이론 5</h2><p>각 5점 기준 <b>65점</b>. 연습에서는 70점 이상을 안정적으로 유지하세요.</p><div class="subject-bars"><span style="--w:82%">C <b>4.1</b></span><span style="--w:68%">Java <b>3.4</b></span><span style="--w:32%">SQL <b>1.6</b></span></div></section>
+      </div>
+    </section>
+    <section id="roadmap" class="view"><div class="page-head"><p class="eyebrow">18-DAY PLAN</p><h1>로드맵</h1><p>완료한 일정을 체크하면 진도가 자동으로 계산됩니다.</p></div><div class="phase-filters"><button data-phase="all" class="active">전체</button><button data-phase="1">1단계</button><button data-phase="2">2단계</button><button data-phase="3">3단계</button></div><div id="timeline" class="timeline"></div></section>
+    <section id="review" class="view"><div class="page-head"><p class="eyebrow">REVIEW LOOP</p><h1>오답 노트</h1><p>△도 오답입니다. 다음 날 → 4일 뒤 → 마지막에 다시 푸세요.</p></div><section class="panel"><form id="reviewForm" class="stack-form"><input id="questionId" required placeholder="회차-번호 (예: 2024-1-03)"><select id="reason"><option>개념 미이해</option><option>암기 부족</option><option>코드 해석 실수</option><option>SQL 작성 실수</option><option>문제 조건 누락</option><option>시간 부족</option></select><input id="answerNote" required placeholder="내 답 → 정답 / 틀린 지점"><button class="primary">오답 추가</button></form></section><div id="reviewList" class="review-grid"></div></section>
+    <section id="cards" class="view"><div class="page-head"><p class="eyebrow">ACTIVE RECALL</p><h1>암기카드</h1><p>카드를 눌러 뒤집고, 소리 내어 답해보세요.</p></div><form id="cardForm" class="panel stack-form"><input id="cardFront" required placeholder="앞면: 용어 또는 질문"><input id="cardBack" required placeholder="뒷면: 핵심 단어 · 정식 명칭 · 헷갈리는 짝"><button class="primary">카드 추가</button></form><div id="cardGrid" class="card-grid"></div></section>
+  </main>
+  <div id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
